@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws IOException {
@@ -11,29 +12,36 @@ public class Main {
         file.createNewFile();
 
         FileWriter writer = new FileWriter(file);
-        writer.write("ABCDEFJHIJKLMNOPQRSTUVWXYZ0123456789");
-        writer.write("abcdefjhijklmnopqrstuvwxyz");
-        writer.flush();
-        writer.close();
-
-        FileReader fr = new FileReader(file);
-        char [] a = new char[36];
-        fr.read(a);
-        char [] b = new char[36];
-        fr.read(b);
-
-//        }}
-        for (int i = 1,c = 0,j = 0; i <= a.length && c < a.length && j < b.length; i++, c++,j++) {
-            if (i < 10 ) {
-                System.out.println(i + ":   " + a[c] + " " + b[j]);
-            }else if(i < 27) {
-                System.out.println(i+":  "+a[c]+" "+b[j]);
-            }else {
-                System.out.println(i+":  "+a[c]);
-            }
-            fr.close();
+        String str ="ABCDEFJHIJKLMNOPQRSTUVWXYZ";
+        String str2 ="abcdefjhijklmnopqrstuvwxyz";
+        String str3 = "0123456789";
+        for (int i = 0; i < str.length(); i++) {
+            writer.write(str.charAt(i)+" "+str2.charAt(i)+"\n");
+        }
+        for (int i = 0; i < str3.length(); i++) {
+            writer.write(str3.charAt(i)+"\n");
 
         }
+        writer.close();
+
+        try(FileReader reader = new  FileReader("Additional.txt")) {
+            Scanner scanner = new Scanner(reader);
+            int i = 0;
+            while (scanner.hasNextLine()){
+                i++;
+                if (i < 10) {
+                    System.out.println(i + ":   " + scanner.nextLine());
+                }else {
+                    System.out.println(i + ":  " + scanner.nextLine());
+                }
+
+            }
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+
+
+
     }
 }
 
