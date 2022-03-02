@@ -60,9 +60,9 @@ public class Main {
             while (scanner.hasNextLine()){
                 i++;
                 if (i < 10) {
-                    System.out.println(i + "   " + scanner.nextLine());
+                    System.out.println(i + ":   " + scanner.nextLine());
                 }else {
-                    System.out.println(i + "  " + scanner.nextLine());
+                    System.out.println(i + ":  " + scanner.nextLine());
                 }
 
             }

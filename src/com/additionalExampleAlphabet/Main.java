@@ -18,18 +18,18 @@ public class Main {
 
         FileReader fr = new FileReader(file);
         char [] a = new char[36];
-        fr.read(a);   
+        fr.read(a);
         char [] b = new char[36];
         fr.read(b);
 
 //        }}
         for (int i = 1,c = 0,j = 0; i <= a.length && c < a.length && j < b.length; i++, c++,j++) {
             if (i < 10 ) {
-                System.out.println(i + "   " + a[c] + " " + b[j]);
+                System.out.println(i + ":   " + a[c] + " " + b[j]);
             }else if(i < 27) {
-                System.out.println(i+"  "+a[c]+" "+b[j]);
+                System.out.println(i+":  "+a[c]+" "+b[j]);
             }else {
-                System.out.println(i+"  "+a[c]);
+                System.out.println(i+":  "+a[c]);
             }
             fr.close();
 
