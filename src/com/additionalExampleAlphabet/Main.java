@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Main {
@@ -13,7 +14,7 @@ public class Main {
 
         FileWriter writer = new FileWriter(file);
         String str ="ABCDEFJHIJKLMNOPQRSTUVWXYZ";
-        String str2 ="abcdefjhijklmnopqrstuvwxyz";
+        String str2 = str.toLowerCase(Locale.ROOT);
         String str3 = "0123456789";
         for (int i = 0; i < str.length(); i++) {
             writer.write(str.charAt(i)+" "+str2.charAt(i)+"\n");
