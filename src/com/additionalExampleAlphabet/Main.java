@@ -24,7 +24,7 @@ public class Main {
         }
         writer.close();
 
-        try(FileReader reader = new  FileReader("Additional.txt")) {
+        try(FileReader reader = new  FileReader(file)) {
             Scanner scanner = new Scanner(reader);
             int i = 0;
             while (scanner.hasNextLine()){
